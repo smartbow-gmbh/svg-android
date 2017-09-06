@@ -1520,6 +1520,8 @@ public class SVGParser {
 					doLimits(rect, strokePaint);
 				}
 				popTransform();
+			} else if (!hidden && localName.equals("style")) {
+				throw new SVGParseException("Unsupported svg tag: " + localName);
 			} else if (!hidden) {
 				Log.w(TAG, "UNRECOGNIZED SVG COMMAND: " + localName);
 			}
